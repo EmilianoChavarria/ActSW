@@ -1,32 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario con Select2</title>
+
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Estilos básicos -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background: #f5f6fa;
+    }
+    h1 {
+      color: #333;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
+  <nav>
     <a href="index.html">Inicio</a>
     <a href="calendario.html">Calendario</a>
-    <select class="js-example-basic-single" name="state">
-        <option value="AL">Alabama</option>
-        ...
-        <option value="WY">Wyoming</option>
+    <a href="formulario.html">Formulario</a>
+  </nav>
+
+  <h1>Registro de usuario</h1>
+
+  <form>
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+
+    <label for="correo">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+
+    <label for="pais">País</label>
+    <select class="js-example-basic-single" id="pais" name="pais">
+      <option value="">Selecciona un país</option>
+      <option value="mx">México</option>
+      <option value="us">Estados Unidos</option>
+      <option value="ca">Canadá</option>
+      <option value="es">España</option>
+      <option value="ar">Argentina</option>
+      <option value="co">Colombia</option>
+      <option value="cl">Chile</option>
     </select>
 
-    <script>
-        // In your Javascript (external .js resource or <script> tag)
-        $(document).ready(function () {
-            $('.js-example-basic-single').select2();
-        });
-    </script>
+    <button type="submit">Enviar</button>
+  </form>
 
-    <script src="main.js"></script>
+  <!-- jQuery (requerido por Select2) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <!-- Inicialización de Select2 -->
+  <script>
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2({
+        placeholder: "Selecciona un país",
+        allowClear: true
+      });
+    });
+  </script>
+
+  <script src="main.js"></script>
 </body>
-
 </html>
